@@ -1,3 +1,13 @@
+---
+title: Neurofin Loan Processor
+emoji: 🏛
+colorFrom: blue
+colorTo: purple
+sdk: docker
+app_port: 7860
+pinned: true
+---
+
 # Multi-Agent Loan Processor
 
 > AI-powered loan document processing with RBI compliance validation — built for Neurofin AI Technologies.
