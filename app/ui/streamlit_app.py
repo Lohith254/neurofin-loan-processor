@@ -35,6 +35,10 @@ st.markdown("""
 /* ── Global ─────────────────────────────────── */
 [data-testid="stAppViewContainer"] { background: #f1f5f9; }
 #MainMenu, footer, header, .stDeployButton { display: none !important; }
+[data-testid="stAppViewContainer"] p,
+[data-testid="stAppViewContainer"] li,
+[data-testid="stAppViewContainer"] label,
+[data-testid="stAppViewContainer"] .stMarkdown { font-size: 1.05rem; line-height: 1.6; }
 
 /* ── Sidebar ────────────────────────────────── */
 section[data-testid="stSidebar"] {
@@ -60,15 +64,15 @@ section[data-testid="stSidebar"] .stSlider label { color: #94a3b8 !important; fo
     display: flex; align-items: center; justify-content: center;
     font-size: 1.1rem; color: white !important;
 }
-.sidebar-brand .name { font-size: 1.15rem; font-weight: 700; color: #f1f5f9 !important; letter-spacing: -0.01em; }
-.sidebar-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: #64748b !important; font-weight: 600; margin-bottom: 0.25rem; }
+.sidebar-brand .name { font-size: 1.3rem; font-weight: 700; color: #f1f5f9 !important; letter-spacing: -0.01em; }
+.sidebar-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #64748b !important; font-weight: 600; margin-bottom: 0.25rem; }
 .sidebar-footer {
     border-top: 1px solid #334155;
     padding-top: 1rem; margin-top: 1rem;
 }
-.sidebar-footer .dev-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; color: #475569 !important; }
-.sidebar-footer .dev-name { font-size: 0.85rem; font-weight: 600; color: #e2e8f0 !important; }
-.sidebar-footer .dev-stack { font-size: 0.7rem; color: #64748b !important; }
+.sidebar-footer .dev-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: #475569 !important; }
+.sidebar-footer .dev-name { font-size: 1rem; font-weight: 600; color: #e2e8f0 !important; }
+.sidebar-footer .dev-stack { font-size: 0.8rem; color: #64748b !important; }
 
 /* ── Hero ───────────────────────────────────── */
 .hero-banner {
@@ -84,13 +88,13 @@ section[data-testid="stSidebar"] .stSlider label { color: #94a3b8 !important; fo
     background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 60%);
     border-radius: 50%;
 }
-.hero-banner h1 { color: #fff; font-size: 2.1rem; font-weight: 800; margin: 0 0 0.5rem 0; letter-spacing: -0.02em; position: relative; }
-.hero-banner .subtitle { color: #c7d2fe; font-size: 1rem; margin: 0 0 1rem 0; line-height: 1.5; position: relative; }
-.hero-banner .badges { display: flex; gap: 0.5rem; position: relative; flex-wrap: wrap; }
+.hero-banner h1 { color: #fff; font-size: 2.6rem; font-weight: 800; margin: 0 0 0.6rem 0; letter-spacing: -0.02em; position: relative; }
+.hero-banner .subtitle { color: #c7d2fe; font-size: 1.15rem; margin: 0 0 1.25rem 0; line-height: 1.6; position: relative; }
+.hero-banner .badges { display: flex; gap: 0.6rem; position: relative; flex-wrap: wrap; }
 .hero-banner .badge {
     background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
-    color: #e0e7ff; padding: 0.3rem 0.85rem; border-radius: 20px;
-    font-size: 0.75rem; font-weight: 500; backdrop-filter: blur(4px);
+    color: #e0e7ff; padding: 0.35rem 1rem; border-radius: 20px;
+    font-size: 0.85rem; font-weight: 500; backdrop-filter: blur(4px);
 }
 
 /* ── Section container (white cards) ────────── */
@@ -104,10 +108,10 @@ section[data-testid="stSidebar"] .stSlider label { color: #94a3b8 !important; fo
     margin-bottom: 1.25rem; padding-bottom: 0.75rem;
     border-bottom: 1px solid #f1f5f9;
 }
-.section-card-header h2 { font-size: 1.25rem; font-weight: 700; color: #0f172a; margin: 0; }
+.section-card-header h2 { font-size: 1.45rem; font-weight: 700; color: #0f172a; margin: 0; }
 .status-chip {
-    font-size: 0.72rem; color: #64748b; background: #f1f5f9;
-    padding: 0.25rem 0.75rem; border-radius: 12px; font-weight: 500;
+    font-size: 0.82rem; color: #64748b; background: #f1f5f9;
+    padding: 0.3rem 0.85rem; border-radius: 12px; font-weight: 500;
 }
 
 /* ── Pipeline cards ─────────────────────────── */
@@ -132,9 +136,9 @@ section[data-testid="stSidebar"] .stSlider label { color: #94a3b8 !important; fo
 .pipe-icon-indigo { background: #eef2ff; color: #6366f1; }
 .pipe-icon-amber { background: #fef3c7; color: #d97706; }
 .pipe-icon-green { background: #ecfdf5; color: #059669; }
-.pipe-card .title { font-weight: 700; font-size: 0.92rem; color: #0f172a; margin-bottom: 0.35rem; }
-.pipe-card .desc { font-size: 0.78rem; color: #64748b; line-height: 1.45; }
-.pipe-card .time-badge { font-size: 0.72rem; color: #059669; font-weight: 600; margin-top: 0.5rem; }
+.pipe-card .title { font-weight: 700; font-size: 1.05rem; color: #0f172a; margin-bottom: 0.4rem; }
+.pipe-card .desc { font-size: 0.9rem; color: #64748b; line-height: 1.5; }
+.pipe-card .time-badge { font-size: 0.82rem; color: #059669; font-weight: 600; margin-top: 0.5rem; }
 .pipe-arrow {
     display: flex; align-items: center; justify-content: center;
     min-width: 32px; color: #cbd5e1; font-size: 1.1rem;
@@ -142,17 +146,17 @@ section[data-testid="stSidebar"] .stSlider label { color: #94a3b8 !important; fo
 }
 
 /* ── Scenario table ─────────────────────────── */
-.scenario-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+.scenario-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
 .scenario-table th {
-    text-align: left; padding: 0.5rem 0.75rem; color: #64748b;
-    font-weight: 600; font-size: 0.72rem; text-transform: uppercase;
+    text-align: left; padding: 0.6rem 0.85rem; color: #64748b;
+    font-weight: 600; font-size: 0.82rem; text-transform: uppercase;
     letter-spacing: 0.05em; border-bottom: 1px solid #e2e8f0;
 }
-.scenario-table td { padding: 0.65rem 0.75rem; border-bottom: 1px solid #f1f5f9; color: #334155; }
-.scenario-table code { font-size: 0.75rem; background: #f8fafc; padding: 0.15rem 0.4rem; border-radius: 4px; color: #475569; }
+.scenario-table td { padding: 0.75rem 0.85rem; border-bottom: 1px solid #f1f5f9; color: #334155; }
+.scenario-table code { font-size: 0.85rem; background: #f8fafc; padding: 0.2rem 0.5rem; border-radius: 4px; color: #475569; }
 .outcome-badge {
-    display: inline-block; padding: 0.15rem 0.55rem; border-radius: 4px;
-    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.03em;
+    display: inline-block; padding: 0.2rem 0.65rem; border-radius: 4px;
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.03em;
 }
 .badge-approve { background: #dcfce7; color: #15803d; }
 .badge-review { background: #fef3c7; color: #a16207; }
@@ -168,8 +172,8 @@ section[data-testid="stSidebar"] .stSlider label { color: #94a3b8 !important; fo
     background: #ffffff; border-radius: 12px; padding: 1.25rem;
     border: 1px solid #e2e8f0; text-align: center;
 }
-.metric-card .label { font-size: 0.7rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
-.metric-card .value { font-size: 1.5rem; font-weight: 800; margin: 0.3rem 0; }
+.metric-card .label { font-size: 0.82rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+.metric-card .value { font-size: 1.7rem; font-weight: 800; margin: 0.3rem 0; }
 .rec-approve { background: linear-gradient(135deg, #ecfdf5, #dcfce7); border-color: #86efac; }
 .rec-approve .value { color: #059669; }
 .rec-review { background: linear-gradient(135deg, #fffbeb, #fef3c7); border-color: #fcd34d; }
@@ -199,8 +203,8 @@ section[data-testid="stSidebar"] .stSlider label { color: #94a3b8 !important; fo
 .check-pass { border-left-color: #10b981; }
 .check-fail { border-left-color: #ef4444; }
 .check-chip {
-    display: inline-block; padding: 0.1rem 0.5rem; border-radius: 4px;
-    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.04em;
+    display: inline-block; padding: 0.15rem 0.6rem; border-radius: 4px;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em;
 }
 .chip-pass { background: #dcfce7; color: #166534; }
 .chip-fail { background: #fee2e2; color: #991b1b; }
@@ -211,20 +215,20 @@ section[data-testid="stSidebar"] .stSlider label { color: #94a3b8 !important; fo
 .sev-high { background: #fef2f2; color: #dc2626; }
 .sev-medium { background: #fffbeb; color: #d97706; }
 .sev-low { background: #f0f9ff; color: #0284c7; }
-.check-card .rule { font-weight: 700; color: #1e293b; font-size: 0.88rem; margin-left: 0.4rem; }
-.check-card .detail { color: #64748b; font-size: 0.78rem; margin-top: 0.3rem; line-height: 1.4; }
+.check-card .rule { font-weight: 700; color: #1e293b; font-size: 1rem; margin-left: 0.4rem; }
+.check-card .detail { color: #64748b; font-size: 0.9rem; margin-top: 0.35rem; line-height: 1.5; }
 
 /* ── Footer bar ─────────────────────────────── */
 .footer-bar {
     display: flex; justify-content: center; gap: 2.5rem; align-items: center;
     padding: 1rem 0; margin-top: 2rem; border-top: 1px solid #e2e8f0;
-    color: #94a3b8; font-size: 0.75rem;
+    color: #94a3b8; font-size: 0.88rem;
 }
 .footer-bar .item { display: flex; align-items: center; gap: 0.4rem; }
 
 /* ── Section header ─────────────────────────── */
 .section-header {
-    font-size: 1.05rem; font-weight: 700; color: #1e293b;
+    font-size: 1.2rem; font-weight: 700; color: #1e293b;
     margin: 1.5rem 0 0.75rem 0; padding-bottom: 0.4rem;
     border-bottom: 2px solid #e2e8f0;
 }
@@ -237,8 +241,8 @@ section[data-testid="stSidebar"] .stSlider label { color: #94a3b8 !important; fo
 }
 .info-item:hover { border-color: #3b82f6; box-shadow: 0 2px 12px rgba(59,130,246,0.08); }
 .info-item .info-icon { font-size: 1.4rem; margin-bottom: 0.5rem; }
-.info-item .info-title { font-weight: 700; color: #0f172a; font-size: 0.92rem; margin-bottom: 0.3rem; }
-.info-item .info-desc { color: #64748b; font-size: 0.8rem; line-height: 1.5; }
+.info-item .info-title { font-weight: 700; color: #0f172a; font-size: 1.05rem; margin-bottom: 0.35rem; }
+.info-item .info-desc { color: #64748b; font-size: 0.92rem; line-height: 1.55; }
 
 .roadmap-item {
     display: flex; gap: 1rem; padding: 1rem 0;
@@ -254,23 +258,23 @@ section[data-testid="stSidebar"] .stSlider label { color: #94a3b8 !important; fo
 .phase-now { background: #dbeafe; color: #1d4ed8; }
 .phase-next { background: #fef3c7; color: #a16207; }
 .phase-future { background: #f3e8ff; color: #7c3aed; }
-.roadmap-content .rm-title { font-weight: 700; color: #0f172a; font-size: 0.9rem; }
-.roadmap-content .rm-desc { color: #64748b; font-size: 0.8rem; line-height: 1.5; margin-top: 0.2rem; }
+.roadmap-content .rm-title { font-weight: 700; color: #0f172a; font-size: 1.05rem; }
+.roadmap-content .rm-desc { color: #64748b; font-size: 0.92rem; line-height: 1.55; margin-top: 0.25rem; }
 
 .involve-card {
     background: linear-gradient(135deg, #eff6ff, #eef2ff);
     border: 1px solid #c7d2fe; border-radius: 12px;
     padding: 1.5rem 1.75rem; margin-top: 1rem;
 }
-.involve-card .involve-title { font-weight: 800; color: #1e293b; font-size: 1.1rem; margin-bottom: 0.5rem; }
-.involve-card .involve-text { color: #475569; font-size: 0.88rem; line-height: 1.65; }
-.involve-card ul { margin: 0.5rem 0; padding-left: 1.3rem; }
-.involve-card li { color: #334155; font-size: 0.85rem; line-height: 1.7; }
+.involve-card .involve-title { font-weight: 800; color: #1e293b; font-size: 1.25rem; margin-bottom: 0.6rem; }
+.involve-card .involve-text { color: #475569; font-size: 1rem; line-height: 1.7; }
+.involve-card ul { margin: 0.6rem 0; padding-left: 1.3rem; }
+.involve-card li { color: #334155; font-size: 0.95rem; line-height: 1.75; }
 .involve-card li strong { color: #1e293b; }
 .cta-row { display: flex; gap: 0.75rem; margin-top: 1rem; flex-wrap: wrap; }
 .cta-btn {
-    display: inline-block; padding: 0.55rem 1.5rem; border-radius: 8px;
-    font-size: 0.82rem; font-weight: 600; text-decoration: none;
+    display: inline-block; padding: 0.6rem 1.75rem; border-radius: 8px;
+    font-size: 0.95rem; font-weight: 600; text-decoration: none;
     transition: all 0.2s ease;
 }
 .cta-primary { background: #2563eb; color: #fff !important; }
