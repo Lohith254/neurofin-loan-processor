@@ -23,7 +23,7 @@ from app.rules.compliance import COMPLIANCE_RULES
 
 # ── Page config ──────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="Neurofin Loan Processor",
+    page_title="Loan Processor Demo | Lohith Rampalli",
     page_icon="🏛",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -298,12 +298,18 @@ section[data-testid="stSidebar"] .stSlider label { color: #94a3b8 !important; fo
 def render_hero():
     st.markdown("""
     <div class="hero-banner">
-        <h1>Neurofin Loan Processor</h1>
-        <p class="subtitle">Enterprise AI-powered bank statement analysis with multi-agent pipeline &amp; RBI compliance validation.</p>
+        <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem;position:relative;">
+            <span style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:#e0e7ff;padding:0.25rem 0.75rem;border-radius:6px;font-size:0.72rem;font-weight:600;letter-spacing:0.04em;">TECHNICAL DEMO</span>
+            <span style="color:#a5b4fc;font-size:0.78rem;">by <strong style="color:#fff;">Lohith Rampalli</strong> &mdash; CTO Application</span>
+        </div>
+        <h1>Multi-Agent Loan Processor</h1>
+        <p class="subtitle">AI-powered bank statement analysis with LangGraph orchestration &amp; RBI compliance validation &mdash; built for Neurofin AI Technologies.</p>
         <div class="badges">
             <span class="badge">LangGraph</span>
             <span class="badge">Groq + Claude</span>
             <span class="badge">Pydantic v2</span>
+            <span class="badge">3-Agent Pipeline</span>
+            <span class="badge">7 RBI Checks</span>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -411,8 +417,8 @@ def render_footer():
     st.markdown("""
     <div class="footer-bar">
         <div class="item">&#9203; Avg. processing: 0.2s</div>
-        <div class="item">&#128737; SOC-2 Type II Compliant</div>
-        <div class="item">&#128230; v2.4.0-stable build</div>
+        <div class="item">&#128187; Built by Lohith Rampalli</div>
+        <div class="item">&#127919; CTO Demo &middot; Neurofin AI Technologies</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -425,8 +431,11 @@ def render_sidebar():
     with st.sidebar:
         st.markdown("""
         <div class="sidebar-brand">
-            <div class="logo">&#127974;</div>
-            <div class="name">Neurofin</div>
+            <div class="logo">&#128640;</div>
+            <div>
+                <div class="name">Loan Processor</div>
+                <div style="font-size:0.65rem;color:#64748b !important;margin-top:0.1rem;">Demo for Neurofin AI</div>
+            </div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -475,9 +484,10 @@ def render_sidebar():
     with st.sidebar:
         st.markdown("""
         <div class="sidebar-footer">
-            <div class="dev-label">DEVELOPED BY</div>
-            <div class="dev-name">Neurofin AI Technologies</div>
-            <div class="dev-stack">LangGraph + Groq/Claude + Pydantic v2</div>
+            <div class="dev-label">BUILT BY</div>
+            <div class="dev-name">Lohith Rampalli</div>
+            <div class="dev-stack">CTO Application &middot; Feb 2026</div>
+            <a href="https://www.linkedin.com/in/lohith-chandra-prasad-rampalli/" target="_blank" style="font-size:0.72rem;color:#60a5fa !important;text-decoration:none;display:block;margin-top:0.3rem;">LinkedIn &rarr;</a>
         </div>
         """, unsafe_allow_html=True)
 
@@ -883,24 +893,24 @@ def render_get_involved():
     st.markdown("""
     <div class="section-card">
         <div class="section-card-header">
-            <h2>How Can I Help Build This?</h2>
-            <span class="status-chip">Collaboration</span>
+            <h2>What I'd Build as CTO</h2>
+            <span class="status-chip">Vision</span>
         </div>
         <div class="involve-card">
-            <div class="involve-title">This demo is a starting point &mdash; not the finish line.</div>
+            <div class="involve-title">This demo took days. Imagine what I'd build with months and a team.</div>
             <div class="involve-text">
-                What you see here was built in days, not months. The architecture is designed to scale
-                from this proof-of-concept to a production system handling thousands of applications daily.
-                Here's where I can contribute:
+                I built this end-to-end &mdash; architecture design, agent orchestration, compliance engine,
+                UI, and deployment &mdash; to demonstrate how I approach technical problems. Here's what I'd
+                bring to Neurofin as CTO:
             </div>
             <ul>
-                <li><strong>Production-Grade Agent Systems</strong> &mdash; Design and build multi-agent pipelines with proper error handling, retry logic, and fallback strategies that don't break at scale.</li>
-                <li><strong>LLM Evaluation &amp; Optimization</strong> &mdash; Set up systematic eval frameworks to measure agent accuracy, latency, and cost. Identify where smaller models can replace expensive ones without quality loss.</li>
-                <li><strong>Compliance &amp; Auditability</strong> &mdash; Build explainable AI systems where every decision is traceable, every rule is configurable, and every override is logged &mdash; critical for RBI and NBFC regulations.</li>
-                <li><strong>End-to-End Ownership</strong> &mdash; From Figma mockups to deployed infrastructure, I can own the full stack: LangGraph orchestration, FastAPI services, React dashboards, and cloud deployment.</li>
+                <li><strong>Production-Grade Agent Systems</strong> &mdash; Scale this from a demo to a platform handling thousands of applications daily, with proper error recovery, observability, and SLA guarantees.</li>
+                <li><strong>LLM Cost &amp; Quality Optimization</strong> &mdash; Build eval frameworks to systematically measure agent accuracy, latency, and cost. Route simple tasks to fast/cheap models, complex ones to capable models.</li>
+                <li><strong>Regulatory-First Architecture</strong> &mdash; Every AI decision is traceable, every rule is configurable, every override is logged. Not an afterthought &mdash; built into the foundation for RBI and NBFC compliance.</li>
+                <li><strong>Full-Stack Technical Leadership</strong> &mdash; From system design to deployment, from hiring engineers to setting up CI/CD &mdash; I can own the entire technical surface area and build a team around it.</li>
             </ul>
             <div class="cta-row">
-                <a href="https://www.linkedin.com/in/lohith-chandra-prasad-rampalli/" target="_blank" class="cta-btn cta-primary">Connect on LinkedIn</a>
+                <a href="https://www.linkedin.com/in/lohith-chandra-prasad-rampalli/" target="_blank" class="cta-btn cta-primary">Let's Talk &rarr;</a>
                 <a href="https://github.com/Lohith254/neurofin-loan-processor" target="_blank" class="cta-btn cta-secondary">View Source Code</a>
             </div>
         </div>
