@@ -12,7 +12,7 @@ pinned: true
 
 > AI-powered loan document processing with RBI compliance validation — built for Neurofin AI Technologies.
 
-**[Live Demo](https://neurofin-loan-processor.streamlit.app)** | [Architecture](#architecture) | [Quick Start](#quick-start)
+**[Live Demo](https://lohith2710r-neurofin-loan-processor.hf.space)** | [Architecture](#architecture) | [Quick Start](#quick-start)
 
 ---
 
@@ -65,7 +65,7 @@ Secured loan disbursal in India takes **5-7 days** due to manual document verifi
 
 ### Option 1: Try the Live Demo (No Setup)
 
-Visit the **[deployed Streamlit app](https://neurofin-loan-processor.streamlit.app)** — works immediately in Demo Mode with sample PDFs.
+Visit the **[deployed app](https://lohith2710r-neurofin-loan-processor.hf.space)** — works immediately in Demo Mode with sample PDFs.
 
 ### Option 2: Run Locally
 
