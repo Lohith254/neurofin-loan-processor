@@ -228,6 +228,65 @@ section[data-testid="stSidebar"] .stSlider label { color: #94a3b8 !important; fo
     margin: 1.5rem 0 0.75rem 0; padding-bottom: 0.4rem;
     border-bottom: 2px solid #e2e8f0;
 }
+
+/* ── Info sections (How/Roadmap/Involve) ────── */
+.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem; }
+.info-item {
+    background: #f8fafc; border-radius: 10px; padding: 1.2rem 1.3rem;
+    border: 1px solid #e2e8f0; transition: all 0.2s ease;
+}
+.info-item:hover { border-color: #3b82f6; box-shadow: 0 2px 12px rgba(59,130,246,0.08); }
+.info-item .info-icon { font-size: 1.4rem; margin-bottom: 0.5rem; }
+.info-item .info-title { font-weight: 700; color: #0f172a; font-size: 0.92rem; margin-bottom: 0.3rem; }
+.info-item .info-desc { color: #64748b; font-size: 0.8rem; line-height: 1.5; }
+
+.roadmap-item {
+    display: flex; gap: 1rem; padding: 1rem 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+.roadmap-item:last-child { border-bottom: none; }
+.roadmap-phase {
+    min-width: 80px; text-align: center;
+    padding: 0.3rem 0.6rem; border-radius: 6px;
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em;
+    text-transform: uppercase; height: fit-content; margin-top: 0.1rem;
+}
+.phase-now { background: #dbeafe; color: #1d4ed8; }
+.phase-next { background: #fef3c7; color: #a16207; }
+.phase-future { background: #f3e8ff; color: #7c3aed; }
+.roadmap-content .rm-title { font-weight: 700; color: #0f172a; font-size: 0.9rem; }
+.roadmap-content .rm-desc { color: #64748b; font-size: 0.8rem; line-height: 1.5; margin-top: 0.2rem; }
+
+.involve-card {
+    background: linear-gradient(135deg, #eff6ff, #eef2ff);
+    border: 1px solid #c7d2fe; border-radius: 12px;
+    padding: 1.5rem 1.75rem; margin-top: 1rem;
+}
+.involve-card .involve-title { font-weight: 800; color: #1e293b; font-size: 1.1rem; margin-bottom: 0.5rem; }
+.involve-card .involve-text { color: #475569; font-size: 0.88rem; line-height: 1.65; }
+.involve-card ul { margin: 0.5rem 0; padding-left: 1.3rem; }
+.involve-card li { color: #334155; font-size: 0.85rem; line-height: 1.7; }
+.involve-card li strong { color: #1e293b; }
+.cta-row { display: flex; gap: 0.75rem; margin-top: 1rem; flex-wrap: wrap; }
+.cta-btn {
+    display: inline-block; padding: 0.55rem 1.5rem; border-radius: 8px;
+    font-size: 0.82rem; font-weight: 600; text-decoration: none;
+    transition: all 0.2s ease;
+}
+.cta-primary { background: #2563eb; color: #fff !important; }
+.cta-primary:hover { background: #1d4ed8; }
+.cta-secondary { background: #fff; color: #2563eb !important; border: 1px solid #2563eb; }
+.cta-secondary:hover { background: #eff6ff; }
+
+.section-divider {
+    display: flex; align-items: center; gap: 1rem;
+    margin: 2rem 0 1.25rem 0;
+}
+.section-divider .divider-line { flex: 1; height: 1px; background: #e2e8f0; }
+.section-divider .divider-label {
+    font-size: 0.7rem; font-weight: 700; color: #94a3b8;
+    text-transform: uppercase; letter-spacing: 0.1em;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -711,6 +770,145 @@ def display_results(result, agent_times=None, risk_assessment=None):
 
 
 # ══════════════════════════════════════════════════════════════════════════════
+#  INFO SECTIONS
+# ══════════════════════════════════════════════════════════════════════════════
+
+def render_how_we_built():
+    st.markdown("""
+    <div class="section-divider">
+        <div class="divider-line"></div>
+        <span class="divider-label">About This Demo</span>
+        <div class="divider-line"></div>
+    </div>
+    <div class="section-card">
+        <div class="section-card-header">
+            <h2>How We Built This</h2>
+            <span class="status-chip">Architecture</span>
+        </div>
+        <p style="color:#475569; font-size:0.88rem; line-height:1.6; margin-bottom:1rem;">
+            This system replaces the traditional 5-7 day manual loan document verification process with an
+            AI pipeline that delivers results in <strong style="color:#0f172a;">under 1 second</strong>.
+            Three specialized agents collaborate through a state machine, each with a single responsibility.
+        </p>
+        <div class="info-grid">
+            <div class="info-item">
+                <div class="info-icon">&#127919;</div>
+                <div class="info-title">LangGraph State Machine</div>
+                <div class="info-desc">Agents are orchestrated via a directed acyclic graph with conditional routing. If the Classifier detects a low-quality document, the pipeline short-circuits &mdash; saving LLM cost and latency.</div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">&#128274;</div>
+                <div class="info-title">Structured Output (No Hallucination)</div>
+                <div class="info-desc">Every agent uses <code>with_structured_output()</code> with Pydantic v2 schemas. The LLM is forced to respond in a strict JSON format via native tool calling &mdash; no regex parsing, no hope-and-pray.</div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">&#9878;&#65039;</div>
+                <div class="info-title">Rule-Based Fallback</div>
+                <div class="info-desc">The compliance engine doesn't rely on AI for scoring. It's a deterministic rule engine (7 RBI checks) that can run independently of the LLM, ensuring auditability and consistency.</div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">&#128260;</div>
+                <div class="info-title">Provider-Agnostic LLM Layer</div>
+                <div class="info-desc">A single factory function supports Groq (free), Claude (high-quality), and Ollama (offline). Swap providers with zero code changes &mdash; critical for production where cost/quality trade-offs shift.</div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">&#128202;</div>
+                <div class="info-title">Decision Explainability</div>
+                <div class="info-desc">Every APPROVE/REVIEW/REJECT decision comes with per-check pass/fail cards, severity levels, actual vs threshold values, and a human-readable recommendation reason.</div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">&#128736;</div>
+                <div class="info-title">Configurable Thresholds</div>
+                <div class="info-desc">All 7 compliance thresholds are adjustable via the sidebar. Business teams can tune risk appetite in real-time without touching code &mdash; see how changing a single slider flips an APPROVE to REVIEW.</div>
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+
+def render_roadmap():
+    st.markdown("""
+    <div class="section-card">
+        <div class="section-card-header">
+            <h2>Future Roadmap</h2>
+            <span class="status-chip">Vision</span>
+        </div>
+        <div class="roadmap-item">
+            <span class="roadmap-phase phase-now">NOW</span>
+            <div class="roadmap-content">
+                <div class="rm-title">Multi-Document Support</div>
+                <div class="rm-desc">Extend beyond bank statements to ITR filings, salary slips, property documents, and CIBIL reports. Each document type gets a specialized extraction agent, with a meta-orchestrator that correlates data across sources for cross-verification.</div>
+            </div>
+        </div>
+        <div class="roadmap-item">
+            <span class="roadmap-phase phase-now">NOW</span>
+            <div class="roadmap-content">
+                <div class="rm-title">OCR + Vision Pipeline</div>
+                <div class="rm-desc">Add Claude Vision or GPT-4V for scanned documents and handwritten forms. A pre-processing agent handles image correction, de-skewing, and OCR quality scoring before feeding into the extraction pipeline.</div>
+            </div>
+        </div>
+        <div class="roadmap-item">
+            <span class="roadmap-phase phase-next">NEXT</span>
+            <div class="roadmap-content">
+                <div class="rm-title">Fraud Detection Agent</div>
+                <div class="rm-desc">A 4th agent that cross-references extracted data against known fraud patterns: tampered PDFs, inconsistent font metadata, transaction amounts that don't sum to closing balance, and duplicate submissions across applications.</div>
+            </div>
+        </div>
+        <div class="roadmap-item">
+            <span class="roadmap-phase phase-next">NEXT</span>
+            <div class="roadmap-content">
+                <div class="rm-title">Human-in-the-Loop Review Queue</div>
+                <div class="rm-desc">REVIEW decisions route to a human underwriter dashboard with pre-filled context. The agent highlights exactly which checks failed and why, reducing manual review time from 30 minutes to 5 minutes.</div>
+            </div>
+        </div>
+        <div class="roadmap-item">
+            <span class="roadmap-phase phase-future">FUTURE</span>
+            <div class="roadmap-content">
+                <div class="rm-title">Production API &amp; Batch Processing</div>
+                <div class="rm-desc">FastAPI service with webhook callbacks, async processing for bulk uploads (100+ statements), Redis-backed job queue, and a tenant-isolated multi-org architecture with per-client compliance configurations.</div>
+            </div>
+        </div>
+        <div class="roadmap-item">
+            <span class="roadmap-phase phase-future">FUTURE</span>
+            <div class="roadmap-content">
+                <div class="rm-title">Continuous Learning Loop</div>
+                <div class="rm-desc">Feed underwriter overrides back into the system. When a human flips REJECT to APPROVE, that signal fine-tunes the risk model. Over time, the system learns each organization's true risk appetite from their decisions.</div>
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+
+def render_get_involved():
+    st.markdown("""
+    <div class="section-card">
+        <div class="section-card-header">
+            <h2>How Can I Help Build This?</h2>
+            <span class="status-chip">Collaboration</span>
+        </div>
+        <div class="involve-card">
+            <div class="involve-title">This demo is a starting point &mdash; not the finish line.</div>
+            <div class="involve-text">
+                What you see here was built in days, not months. The architecture is designed to scale
+                from this proof-of-concept to a production system handling thousands of applications daily.
+                Here's where I can contribute:
+            </div>
+            <ul>
+                <li><strong>Production-Grade Agent Systems</strong> &mdash; Design and build multi-agent pipelines with proper error handling, retry logic, and fallback strategies that don't break at scale.</li>
+                <li><strong>LLM Evaluation &amp; Optimization</strong> &mdash; Set up systematic eval frameworks to measure agent accuracy, latency, and cost. Identify where smaller models can replace expensive ones without quality loss.</li>
+                <li><strong>Compliance &amp; Auditability</strong> &mdash; Build explainable AI systems where every decision is traceable, every rule is configurable, and every override is logged &mdash; critical for RBI and NBFC regulations.</li>
+                <li><strong>End-to-End Ownership</strong> &mdash; From Figma mockups to deployed infrastructure, I can own the full stack: LangGraph orchestration, FastAPI services, React dashboards, and cloud deployment.</li>
+            </ul>
+            <div class="cta-row">
+                <a href="https://linkedin.com/in/lohithrampalli" target="_blank" class="cta-btn cta-primary">Connect on LinkedIn</a>
+                <a href="https://github.com/Lohith254/neurofin-loan-processor" target="_blank" class="cta-btn cta-secondary">View Source Code</a>
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+
+# ══════════════════════════════════════════════════════════════════════════════
 #  MAIN
 # ══════════════════════════════════════════════════════════════════════════════
 
@@ -776,6 +974,11 @@ def main():
         finally:
             if input_method == "Upload PDF" and pdf_path and os.path.exists(pdf_path):
                 os.unlink(pdf_path)
+
+    # ── Info sections ──
+    render_how_we_built()
+    render_roadmap()
+    render_get_involved()
 
     render_footer()
 
