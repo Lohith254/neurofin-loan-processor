@@ -182,7 +182,7 @@ print(f"Recommendation: {result.recommendation.value}")
 ## Author
 
 **Lohith Rampalli**
-- LinkedIn: [linkedin.com/in/lohithrampalli](https://linkedin.com/in/lohithrampalli)
+- LinkedIn: [linkedin.com/in/lohith-chandra-prasad-rampalli](https://linkedin.com/in/lohith-chandra-prasad-rampalli)
 
 ---
 

@@ -900,7 +900,7 @@ def render_get_involved():
                 <li><strong>End-to-End Ownership</strong> &mdash; From Figma mockups to deployed infrastructure, I can own the full stack: LangGraph orchestration, FastAPI services, React dashboards, and cloud deployment.</li>
             </ul>
             <div class="cta-row">
-                <a href="https://linkedin.com/in/lohithrampalli" target="_blank" class="cta-btn cta-primary">Connect on LinkedIn</a>
+                <a href="https://www.linkedin.com/in/lohith-chandra-prasad-rampalli/" target="_blank" class="cta-btn cta-primary">Connect on LinkedIn</a>
                 <a href="https://github.com/Lohith254/neurofin-loan-processor" target="_blank" class="cta-btn cta-secondary">View Source Code</a>
             </div>
         </div>
